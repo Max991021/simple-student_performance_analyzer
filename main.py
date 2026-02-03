@@ -7,7 +7,7 @@ class  StudentAnalyzer:
         pass
     
     
-    def input_func(self):
+    def input_func():
         
         analyze.studentsnames = input('Please insert the names of the students to be captured separated by a comma(,): ')
         analyze.students()
@@ -17,9 +17,6 @@ class  StudentAnalyzer:
             analyze.marks()
             
             
-            for elements in analyze.studentsmarks:
-                elements = int(elements)
-                
                 
             
             analyze.studentsmarks.append(analyze.avg())
@@ -27,7 +24,7 @@ class  StudentAnalyzer:
             analyze.displayer[name] = analyze.studentsmarks
             
 
-    input_func(self='')
+    input_func()
                 
 
     

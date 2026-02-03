@@ -2,11 +2,12 @@ import math
 
 class Analyser:
     
-    def __init__(self,studentsmarks = None,avarage = None,studentsnames = None,displayer = None):
+    def __init__(self,studentsmarks = None,avarage = None,studentsnames = None,displayer = None,intstumarks = None):
         self.studentsmarks = studentsmarks
         self.avarage = avarage
         self.studentsnames = studentsnames
         self.displayer = displayer
+        self.intstumarks = []
         
     def students(self):
         self.studentsnames = self.studentsnames.split(',')
@@ -15,11 +16,16 @@ class Analyser:
     
     def marks(self):
         self.studentsmarks = self.studentsmarks.split(',')
-        
-        return self.studentsmarks
+        for elements in self.studentsmarks:
+                elements = int(elements)
+                self.intstumarks.append(elements)
+        print(self.studentsmarks)
+
+        return self.intstumarks
     
     def avg(self):
-        self.avarage = sum(self.studentsmarks)/len(self.studentsmarks)
+        
+        self.avarage = sum(self.intstumarks)/len(self.intstumarks)
         
         return self.avarage
         
