@@ -2,7 +2,7 @@ import math
 
 class Analyser:
     
-    def __init__(self,studentsmarks = None,avarage = None,studentsnames = None,displayer = None,intstumarks = None):
+    def __init__(self,studentsmarks = None,avarage = None,studentsnames = None,displayer = None):
         self.studentsmarks = studentsmarks
         self.avarage = avarage
         self.studentsnames = studentsnames
@@ -14,12 +14,23 @@ class Analyser:
         
         return self.studentsnames
     
-    def marks(self):
+    def marks(self, ):
+        
+        
         self.studentsmarks = self.studentsmarks.split(',')
+        marks = []
         for elements in self.studentsmarks:
-                elements = int(elements)
-                self.intstumarks.append(elements)
-        print(self.studentsmarks)
+            
+            elements = int(elements)
+            marks.append(elements)
+                
+        marks.append(sum(marks)/len(marks))
+        self.intstumarks.append(marks)
+        
+        # for names in self.studentsnames:
+        #     for i in self.intstumarks:
+        #         self.displayer[names] = self.intstumarks[i]
+        # print(self.studentsmarks)
 
         return self.intstumarks
     
