@@ -8,37 +8,39 @@ class  StudentAnalyzer:
     
     
     def input_func(self):
-        
-        analyze.studentsnames = input('Please insert the names of the students to be captured separated by a comma(,): ')
-        analyze.students()
-        
-        print(analyze.studentsnames)
-        
-        avg = 0
-        for name in analyze.studentsnames:
-            analyze.studentsmarks = input(f'Please insert the marks for student {name} saparated by a comma (,):')
-            analyze.marks()
-
+        with open('students.txt','r',errors='ignore') as file:
+            contents = file.readlines()
+            print(contents)
+            names = []
+            marks = []
+            for i in contents:
+                temp = ''.join(i).replace('\n','').split('=')
+            
+                # for i in temp:
+                #     if i.isdigit(): 
+                #         marks.append(i)
+                analyze.studentsnames = temp[0]
+                analyze.students()
                 
-            print(analyze.intstumarks)
-        print(analyze.intstumarks)
-        # for elements in analyze.studentsmarks:
-        #     elements = int(elements)
-        #     analyze.intstumarks.append(elements)
-            
+                print(analyze.studentsnames)
                 
-            
-        #     analyze.intstumarks.append(analyze.avg())
-        #     print(analyze.studentsmarks)
-        # for name in analyze.intstumarks:
-        #     analyze.displayer[name] = analyze.intstumarks
-        
+                avg = 0
+                for name in analyze.studentsnames:
+                    analyze.studentsmarks = temp[1]
+                    analyze.marks()
 
-        for names in analyze.studentsnames:
-            for i in analyze.intstumarks:
-                analyze.displayer[names] = analyze.intstumarks[i]
-        print(analyze.display)
-            
+                        
+                    print(analyze.intstumarks)
+                print(analyze.intstumarks)
+
+                counter = 0
+                for names in analyze.studentsnames:
+                    
+                    analyze.displayer[names] = analyze.intstumarks[counter]
+                    counter +=1
+                print(analyze.display)
+                
+        # with open('Performance_Analyser.txt','w', errors='ignore')
 
     input_func(self=None)
                 

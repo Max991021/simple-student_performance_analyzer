@@ -6,7 +6,7 @@ class Analyser:
         self.studentsmarks = studentsmarks
         self.avarage = avarage
         self.studentsnames = studentsnames
-        self.displayer = displayer
+        self.displayer = {}
         self.intstumarks = []
         
     def students(self):
@@ -42,7 +42,8 @@ class Analyser:
         
     @property
     def display(self):
-        sorted_items = self.displayer.sorted(self.displayer.items(), key=lambda: sum(item[1]), reverse = True)
+        sorted_items = dict(sorted(self.displayer.items(), key=lambda item: sum(item[1]), reverse = True))
+        
         
         return f'This is the list of the students that have performed from highest to lowest: {sorted_items}'
         
