@@ -43,10 +43,17 @@ class Analyser:
     @property
     def display(self):
         sorted_items = dict(sorted(self.displayer.items(), key=lambda item: sum(item[1]), reverse = True))
-        
-        
-        return f'This is the list of the students that have performed from highest to lowest: {sorted_items}'
-        
+        with open('Performance_Analyser.txt','w', errors='ignore') as file:
+            file.write('-----------------This Is The Student Performance Analyser------------------------\n')
+            count = 1
+            for key,value in sorted_items.items():
+                # new = ','.join(str(i) for i in value)
+                output = f'No. {count} is {key} with the marks {','.join(str(i) for i in value[:-1])} and the avarage of {str(value[-1])}\n'
+                count +=1
+                file.write(output)
+                
+    
+        return sorted_items
         
 
             
