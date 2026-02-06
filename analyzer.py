@@ -2,12 +2,13 @@ import math
 
 class Analyser:
     
-    def __init__(self,studentsmarks = None,avarage = None,studentsnames = None,displayer = None):
+    def __init__(self,studentsmarks = None,avarage = None,studentsnames = None,status = None):
         self.studentsmarks = studentsmarks
         self.avarage = avarage
         self.studentsnames = studentsnames
         self.displayer = {}
         self.intstumarks = []
+        self.status = status
         
     def students(self):
         self.studentsnames = self.studentsnames.split(',')
@@ -38,6 +39,11 @@ class Analyser:
         
         self.avarage = sum(self.intstumarks)/len(self.intstumarks)
         
+        if self.avarage > 50:
+            self.status = 'Pass'
+        else:
+            status = 'Fail'
+        
         return self.avarage
         
     @property
@@ -47,8 +53,12 @@ class Analyser:
             file.write('-----------------This Is The Student Performance Analyser------------------------\n')
             count = 1
             for key,value in sorted_items.items():
-                # new = ','.join(str(i) for i in value)
-                output = f'No. {count} is {key} with the marks {','.join(str(i) for i in value[:-1])} and the avarage of {str(value[-1])}\n'
+                new = int(value[-1])
+                if new < 50:
+                    status = 'Fail'
+                else:
+                    status = "Pass"
+                output = f'No. {count} is {key} with the marks {','.join(str(i) for i in value[:-1])} and the avarage of {str(value[-1])} Status: {status}\n'
                 count +=1
                 file.write(output)
                 
