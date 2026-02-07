@@ -22,6 +22,8 @@ class  StudentAnalyzer:
                
                 analyze.studentsmarks = temp[1]
                 analyze.marks()
+                
+                
 
                         
                 
@@ -35,6 +37,7 @@ class  StudentAnalyzer:
                     
                 print(analyze.intstumarks)
                 print(analyze.display)
+            #print(analyze.avg())
                 
         # with open('Performance_Analyser.txt','w', errors='ignore') as file:
         #     file.write('-----------------This Is The Student Performance Analyser------------------------')

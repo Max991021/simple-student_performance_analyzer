@@ -15,7 +15,7 @@ class Analyser:
         
         return self.studentsnames
     
-    def marks(self, ):
+    def marks(self):
         
         
         self.studentsmarks = self.studentsmarks.split(',')
@@ -28,6 +28,7 @@ class Analyser:
         marks.append(sum(marks)/len(marks))
         self.intstumarks.append(marks)
         
+        
         # for names in self.studentsnames:
         #     for i in self.intstumarks:
         #         self.displayer[names] = self.intstumarks[i]
@@ -37,12 +38,13 @@ class Analyser:
     
     def avg(self):
         
-        self.avarage = sum(self.intstumarks)/len(self.intstumarks)
-        
+        for lists in self.intstumarks:
+            self.avarage = sum(lists)/len(lists)
+            lists.append(self.avarage)
         if self.avarage > 50:
             self.status = 'Pass'
         else:
-            status = 'Fail'
+            self.status = 'Fail'
         
         return self.avarage
         
